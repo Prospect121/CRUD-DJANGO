@@ -1,0 +1,34 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<table class="table table-striped table-bordered table-sm">
+    <thead class="thead-dark">
+        <tr>
+            <th>Schedule ID</th>
+            <th>Schedule Name</th>
+            <th>Schedule Surname</th>
+            <th>Schedule Email</th>
+            <th>Schedule Phone</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for schedule in schedules %}
+        <tr>
+            <td>{{ schedule.id }}</td>
+            <td>{{ schedule.name }}</td>
+            <td>{{ schedule.surname }}</td>
+            <td>{{ schedule.email }}</td>
+            <td>{{ schedule.phone }}</td>
+            <td>
+                <a href="/edit/{{ schedule.id }}"><span class="glyphicon glyphicon-pencil">Edit</span></a>
+                <a href="/delete/{{ schedule.id }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+<center><a href="/diary" class="btn btn-primary">Add New Record</a></center>
+{% endblock %}
